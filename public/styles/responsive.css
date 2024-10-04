@@ -1,0 +1,46 @@
+/* Estilo do botão de menu hambúrguer */
+.menu-toggle {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff; /* Cor do ícone */
+    margin: 10px;
+    display: none; /* O botão começa oculto em telas grandes */
+    position: absolute; /* Coloquei `position: absolute` para posicioná-lo conforme necessário */
+    right: 20px; /* Ajuste o posicionamento conforme necessário */
+    top: 15px; /* Alinha o ícone no topo */
+}
+
+/* Media Query para telas menores que 768px */
+@media (max-width: 768px) {
+    /* Exibir o botão hambúrguer */
+    .menu-toggle {
+        display: block; /* Exibe o botão de menu */
+    }
+
+    /* Esconde o menu horizontal padrão */
+    #menu {
+        display: none; /* Menu começa escondido */
+        flex-direction: column; /* Opção para que o menu dropdown fique vertical */
+        position: absolute;
+        top: 60px;
+        right: 28px;
+        width: 200px;
+        background: transparent; /* Fundo levemente escurecido para dropdown */
+        border-radius: 8px; /* Borda arredondada para estilo */
+        font-size: 1rem;
+    }
+
+    /* Itens de menu no dropdown */
+    #menu a {
+        color: #fff; /* Ajusta a cor para o fundo escuro */
+        padding: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Último item sem borda */
+    #menu a:last-child {
+        border-bottom: none;
+    }
+}

@@ -1,0 +1,157 @@
+.volunteers-header {
+    background-image: url('/assets/images/fundos/voluntarios.png');
+
+    max-width: 100vw;
+    overflow-x: hidden
+}
+
+#volunteers {
+    padding-left: 10%;
+
+    max-width: 100vw; /* Garante que a largura máxima não exceda a viewport */
+    overflow-x: hidden
+}
+
+#volunteers h2{
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    color: #161822;
+}
+#volunteers a {
+    width: 200px;
+}
+#volunteers h3 {
+    color: #e96642;
+    margin-bottom: 0px;
+    font-size: 1.6rem;
+    transition: color 0.3s ease;
+    width: max-content;
+}
+#volunteers h3:hover {
+    color: #e9664298;
+}
+
+#volunteers a {
+    text-decoration: none;
+}
+
+#volunteers p {
+    color: #9b9997;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+#volunteers > p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#volunteers ul p {
+    margin-top: 5px;
+}
+
+#volunteers ul {
+    padding-left: 0px;
+    width: 70%;
+    margin-top: 40px;
+}
+
+#volunteers li {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+#volunteer-informations {
+    background-color: #161822;
+    color: #fff;
+    padding: 2% 10%;
+    margin-bottom: 2px;
+
+    max-width: 100vw; /* Garante que a largura máxima não exceda a viewport */
+    overflow-x: hidden
+}
+#volunteer-informations .item  {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+#volunteer-informations label {
+    font-size: 1.5rem;
+}
+#volunteer-informations .item input, select {
+    width: 500px;
+    box-sizing: border-box;
+    height: 30px;
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 5px;
+}
+#volunteer-informations h2 {
+    font-size: 2rem;
+}
+
+#volunteer-informations button {
+    background-color: #e96642;
+    color: #fff;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+}
+#volunteer-informations button:hover {
+    background-color: #ebc7bc;
+    color: #161822;
+}
+
+
+.privacity-container {
+    width: fit-content;
+    margin-bottom: 20px;
+    display: flex;
+}
+.privacity-container label {
+    font-size: 1.2rem !important;
+}
+/* ------------------------------------------------------------------ */
+@media (max-width: 768px) {
+    #volunteer-informations {
+        padding: 10% 8%;
+    
+        max-width: 100vw; 
+        overflow-x: hidden
+    }
+
+    #volunteer-informations .item  {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    #volunteer-informations label {
+        font-size: 1.5rem;
+    }
+    #volunteer-informations input, select {
+        width: 100%;
+        max-width: 80vw;
+    }
+    
+    #volunteers h2 {
+        font-size: 2rem;
+    }
+
+    #volunteers > p {
+        font-size: 1.3rem;
+        max-width: 80vw;
+    }
+
+    #volunteers h3 {
+        font-size: 1.5rem;
+        max-width: 50vh;
+    }
+
+    .privacity-container label {
+        font-size: 0.8rem !important;
+    }
+}

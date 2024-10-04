@@ -1,0 +1,703 @@
+/* Carousel */
+.carousel {
+    width: 100%;
+    height: 100vh;
+
+    max-width: 100vw;
+    overflow-x: hidden
+}
+
+.carousel .list {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.carousel .list .item {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+
+    max-width: 100vw; /* Garante que a largura máxima não exceda a viewport */
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.carousel .list .item h1 {
+    font-size: 3rem;
+    opacity: 0;
+    margin-bottom: 10px;
+}
+.carousel .list .item .button {
+    opacity: 0;
+}
+
+.carousel .list .item img{
+    width: 100%;
+    object-fit: cover;
+    height: 100vh;
+    opacity: 0.3;
+    transition: opacity 800ms;
+    object-fit: cover;
+}
+
+.carousel .list .item.active img {
+    opacity: 1;
+}
+
+.carousel .list .item .content {
+    position: absolute;
+    top: 30%;
+    width:max-content;
+    margin-left: 65px;
+    color: #fff;
+}
+
+.active h1 {
+    transform: translateY(50px);
+    opacity: 0;
+    animation: showContent 0.5s 0.5s linear 1 forwards;
+}
+.active .button {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: showContent 0.5s 0.8s linear 1 forwards;
+}
+@keyframes showContent {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.carousel .list .item .button {
+    width: fit-content;
+    border-radius: 15px;
+}
+.carousel .list .item .button.blue:hover{
+    background-color: #55bcc89d;
+}
+.carousel .list .item .button.green:hover{
+    background-color: #a2ca46c2;
+}
+.carousel .list .item .button.orange:hover{
+    background-color: #e96642be;
+}
+
+.carousel .list .item .button a {
+    color: #fff;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 20px 50px;
+}
+
+/* Indicators */
+
+.indicators {
+    position: absolute;
+    bottom: 10%;
+    display: flex;
+    margin-left: 65px;
+    z-index: 100;
+}
+
+.indicators > div {
+    margin-right: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+.indicators > div:hover {
+    opacity: 1;
+}
+
+.indicators p {
+    color: #fff;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.indicators .line {
+    width: 120px;
+    height: 5px;
+    border-radius: 15px;
+}
+
+/* Details */
+.blue {
+    background-color: #55bdc8;
+    transition: background-color 0.3s ease;
+}
+.green {
+    background-color: #a2ca46;
+    transition: background-color 0.3s ease;
+}
+.orange {
+    background-color: #e96642;
+    transition: background-color 0.3s ease;
+}
+
+.blue-word {
+    color: #55bdc8;
+}
+.green-word {
+    color: #a2ca46;
+}
+.orange-word {
+    color: #e96642;
+}
+
+.show {
+    position: absolute;
+    z-index: 90;
+}
+
+.low-opacity {
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+.high-opacity {
+    opacity: 1;
+}
+
+/* About */
+
+.about {
+    width: 70%;
+    margin: 80px auto;
+
+    max-width: 100vw; /* Garante que a largura máxima não exceda a viewport */
+    overflow-x: hidden
+}
+
+.about h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    animation: appear linear 1 forwards;
+    animation-duration: 0.8s;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+    margin-bottom: 50px;
+    color: #161822;
+}
+
+.about > div {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%; 
+    animation-duration: 0.8;
+}
+
+.about p {
+    font-size: 1.5rem;
+    margin-bottom: 45px;
+    animation: appear linear;
+    animation-duration: 0.8s;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%; 
+    color: #9b9997;
+}
+
+.about span {
+    font-weight: 800;
+}
+
+@keyframes appear {
+    from {
+        transform: translateY(150px);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+/* Locations */ 
+.locations {
+    background-color: #eff1ee;
+    padding: 30px 100px;
+}
+
+.locations > div > div {
+    position: relative;
+    cursor: pointer;
+}
+
+.locations > div > div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); /* Sombra forte embaixo, diminuindo para cima */
+    z-index: 1; /* Coloca a sombra acima da imagem de fundo */
+    pointer-events: none; /* Permite interações com os elementos abaixo */
+    border-radius: 20px;
+}
+
+.locations > div > div:hover::before {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.329));
+}
+
+.locations address {
+    position: absolute;
+    bottom: 10%;
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    width: 100%;
+    z-index: 2;
+}
+
+.locations h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    animation: appearLocations 1s linear 1 forwards; /* Aumentando a duração e usando ease-in-out */
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+    margin-bottom: 50px;
+    color: #161822;
+}
+@keyframes appearLocations {
+    from {
+        opacity: 0;
+        transform: scale(0) translateY(150px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.locations .big-images-container {
+    display: flex;
+    gap: 30px;
+    animation: appearLocations 1s linear 1 forwards; /* Aumentando a duração e usando ease-in-out */
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+.locations .big-images-container .maluche {
+    background-image: url('../assets/images/igrejas/maluche.jpg');
+    height: 400px;
+    width: 50%;
+    border-radius: 20px;
+}
+.locations .big-images-container .dom {
+    background-image: url('../assets/images/igrejas/dom-joaquim.jpg');
+    height: 400px;
+    width: 50%;
+    border-radius: 20px;
+}
+
+.locations .little-images-container {
+    display: flex;
+    margin-top: 30px;
+    gap: 30px;
+    animation: appearLocations 5s cubic-bezier(0.65, 0, 0.35, 1) 1 forwards; /* Aumentando a duração e usando ease-in-out */
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
+}
+.locations .little-images-container .claraiba {
+    background-image: url('../assets/images/igrejas/claraiba.jpeg');
+    height: 250px;
+    width: 33%;
+    background-position: top center; /* Alinha a imagem ao topo e ao centro horizontalmente */
+    background-size: cover;
+    border-radius: 20px;
+}
+.locations .little-images-container .gaspar {
+    background-image: url('../assets/images/igrejas/gaspar.jpg');
+    height: 250px;
+    width: 33%;
+    background-position: top center; /* Alinha a imagem ao topo e ao centro horizontalmente */
+    background-size: cover;
+    border-radius: 20px;
+}
+.locations .little-images-container .nova-trento {
+    background-image: url('../assets/images/igrejas/nova-trento.png');
+    height: 250px;
+    width: 33%;
+    background-position: top center; /* Alinha a imagem ao topo e ao centro horizontalmente */
+    background-size: cover;
+    border-radius: 20px;
+}
+
+/* Groups */
+.groups {
+    padding-bottom: 50px;
+}
+
+.groups h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    animation: appearLocations 1s linear 1 forwards; /* Aumentando a duração e usando ease-in-out */
+    animation-timeline: view();
+    animation-range: entry 0% cover 5%;
+    margin-bottom: 50px;
+    color: #e96642;
+}
+
+.groups .item {
+    display: flex;
+    gap: 50px;
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.groups .item img {
+    width: 30%;
+    object-fit: cover;
+    object-position: top;
+    height: 280px;
+    border-radius: 20px;
+}
+
+.groups .item h3 {
+    font-weight: 800;
+    margin-top: 0px;
+    color: #161822;
+}
+
+.groups .item a {
+    color: #161822;
+    text-decoration: none;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+}
+
+.groups p {
+    font-size: 20px;
+    color: #9b9997;
+}
+
+.to-left {
+    justify-content: start;
+    padding-left: 7%;
+    animation: fromTheLeft 1s ease-in-out 1 forwards; /* Aumentando a duração e usando ease-in-out */
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+}
+@keyframes fromTheLeft {
+    from {
+        transform: translateX(-500px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.to-right {
+    justify-content: end;
+    padding-right: 7%;
+    animation: fromTheRight 1s ease-in-out 1 forwards; /* Aumentando a duração e usando ease-in-out */
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+}
+@keyframes fromTheRight {
+    from {
+        opacity: 0;
+        transform: translateX(500px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Newsletter */
+.newsletter {
+    background-color: #eff1ee;
+
+    max-width: 100vw;
+    overflow-x: hidden;
+
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.newsletter > h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.newsletter > p {
+    max-width: 80vw;
+    margin: auto;
+    font-size: 1.5rem;
+    margin-bottom: 70px;
+    color: #9b9997;
+}
+
+.newsletter .email-information {
+    max-width: fit-content;
+    margin: auto;
+}
+
+.newsletter .email-information label {
+    color: #9b9997;
+    font-weight: bold;
+}
+
+.newsletter .email-information input {
+    display: block;
+    width: 500px;
+    max-width: 90vw;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 20px;
+    border-width: 0.8px;
+}
+
+.privacity-container {
+    width: fit-content;
+    margin: 10px auto;
+}
+
+.newsletter button {
+    background-color: #e96642;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    display: block;
+    width: fit-content;
+    margin: auto;
+    padding: 10px 40px;
+    font-size: 1rem;
+    margin-top: 40px;
+}
+
+.newsletter button:hover {
+    background-color: #e96642be;
+}
+
+
+
+/*-------------------------------------------------*/
+
+@media (max-width: 1024px) {
+    
+}
+
+@media (max-width: 768px) {
+    /* Content of the carrousel */
+    .carousel .list .item h1 {
+        font-size: 1.8rem;
+        opacity: 0;
+        margin-bottom: 10px;
+        
+        word-wrap: break-word; /* Quebra palavras muito longas */
+        overflow: hidden; /* Evita que o conteúdo se expanda para fora */
+    }
+    .carousel .list .item h1 br {
+        display: none;
+      }
+    .carousel .list .item .content {
+        position: absolute;
+        top: 30%;
+        width:max-content;
+        margin-left: 20px;
+        color: #fff;
+        width: 80vw;
+    }
+
+    /* Carrousel Button */
+    .carousel .list .item .button a {
+        color: #fff;
+        text-decoration: none;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 20px 50px;
+    }
+
+    /* Carrousel indicators */
+    .indicators {
+        position: absolute;
+        bottom: 10%;
+        display: flex;
+        margin-left: 22px;
+        z-index: 100;
+    }
+    
+    .indicators > div {
+        margin-right: 10px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .indicators > div:hover {
+        opacity: 1;
+    }
+    
+    .indicators p {
+        color: #fff;
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 0.8rem;
+    }
+    
+    .indicators .line {
+        width: 100px;
+        height: 5px;
+        border-radius: 15px;
+    }
+
+    /* About */
+    .about {
+        width: 80%;
+        margin: 80px auto;
+    
+        max-width: 100vw; /* Garante que a largura máxima não exceda a viewport */
+        overflow-x: hidden
+    }
+
+    .about h2 {
+        font-size: 2rem;
+    }
+
+    .about p {
+        font-size: 1.4rem;
+    }
+
+    /* Locations */ 
+    .locations {
+        background-color: #eff1ee;
+        padding: 30px 10px;
+    }
+
+    .locations > div > div {
+        position: relative;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .locations address {
+        font-size: 1rem;
+    }
+
+    .locations h2 {
+        font-size: 2.5rem;
+    }
+
+    .locations .big-images-container {
+        gap: 10px;
+    }
+    .locations .big-images-container .maluche {
+        background-position: center;
+    }
+    .locations .big-images-container .dom {
+        background-position: center;
+    }
+
+    .locations .little-images-container {
+        gap: 10px;
+    }
+    
+
+    /* Groups */
+    .groups {
+        padding: auto 10px;
+        max-width: 100vw;
+    }
+
+    .groups h2 {
+        font-size: 2rem;
+    }
+
+    .groups .item {
+        display: flex;
+        gap: 10px;
+        position: relative;
+        margin-bottom: 50px;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 100;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    .groups .item img {
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 20px;
+        transform: scale(1);
+        height: 80%;
+    }
+    
+    .groups .item h3 {
+        font-weight: 800;
+        margin-top: 0px;
+        color: #161822;
+        font-size: 1.1rem;
+    }
+    
+    .groups .item a {
+        color: #161822;
+        text-decoration: none;
+        font-weight: bold;
+        position: relative;
+        bottom: 10px;
+        font-size: 0.8rem;
+    }
+    
+    .groups p {
+        font-size: 1rem;
+        color: #9b9997;
+    }
+    
+    .to-left {
+        justify-content: start;
+        padding-left: 0%;
+        animation: fromTheLeft 1s ease-in-out 1 forwards; /* Aumentando a duração e usando ease-in-out */
+        animation-timeline: view();
+        animation-range: entry 0% cover 25%;
+    }
+    @keyframes fromTheLeft {
+        from {
+            transform: translateX(-500px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    .to-right {
+        justify-content: end;
+        padding-right: 0%;
+        animation: fromTheRight 1s ease-in-out 1 forwards; /* Aumentando a duração e usando ease-in-out */
+        animation-timeline: view();
+        animation-range: entry 0% cover 25%;
+    }
+    @keyframes fromTheRight {
+        from {
+            opacity: 0;
+            transform: translateX(500px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}

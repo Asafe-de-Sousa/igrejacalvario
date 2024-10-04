@@ -1,0 +1,22 @@
+{
+  "name": "calvario",
+  "version": "1.0.0",
+  "description": "site da igreja calvário",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Asafe Matheus Moraes de Sousa",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "qrcode": "^1.5.4",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.26.0",
+    "ws": "^8.18.0"
+  }
+}

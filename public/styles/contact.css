@@ -1,0 +1,25 @@
+.contact-header {
+    background-image: url('/assets/images/fundos/atendimento.png');
+}
+
+.contact-informations {
+    margin-left: 5%;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.contact-informations h2{
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 50px;
+    color: #161822;
+}
+.contact-informations p {
+    color: #9b9997;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.contact-p {
+    position: absolute;
+}

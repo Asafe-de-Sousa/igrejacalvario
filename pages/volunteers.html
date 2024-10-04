@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voluntariado - Igreja Calvário</title>
+
+    <link rel="stylesheet" href="/styles/general.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="/styles/responsive.css">
+    <link rel="stylesheet" href="/styles/volunteers.css">
+</head>
+<body>
+    <div class="basic-header volunteers-header">
+        <header class="navbar">
+            <a href="/">
+                <img src="./assets/images/logo-removebg-preview (1).png" alt="logo da igreja calvário">
+            </a>
+
+            <div class="menu" id="menu">
+                <a href="/contribuition">CONTRIBUA</a>
+                <a href="/getinvolved">ENVOLVA-SE</a>
+                <a href="/contact">CONTATO</a>
+            </div>
+
+            <button class="menu-toggle" id="menu-toggle">
+                &#9776;
+            </button>
+        </header>
+
+        <div class="content">
+            <a href="#main-contact">
+                <h1>
+                    VOLUNTARIADO
+                </h1>
+            </a>
+            <p>
+                Deseja fazer parte da nossa equipe de voluntários? Veja como você pode se envolver e fazer a diferença.
+            </p>
+        </div>
+    </div>
+
+    <section id="volunteers">
+        <h2>Nossas equipes:</h2>
+        <p>Veja se você se interessa por uma de nossas equipes. </p>
+        <p>Caso você se interesse por algo e não sabe fazer o serviço, não se preocupe, iremos te ensinar.</p>
+        <ul>
+           <li>
+                <a href="#volunteer-informations" onclick="fullfillOption('Filmagem')">
+                    <h3>Filmagem ></h3>
+                </a>
+                <p>transmitir ao vivo eventos e cultos</p>
+            </li> 
+            <li>
+                <a href="#volunteer-informations" onclick="fullfillOption('Fotografia')">
+                    <h3>Fotografia ></h3>
+                </a>
+                <p>capturar momentos importantes das reuniões</p>
+            </li>
+            <li>
+                <a href="#volunteer-informations" onclick="fullfillOption('Telão')">
+                    <h3>Telão ></h3>
+                </a>
+                <p>exibição de informações com precisão durante os encontros.</p>
+            </li>
+            <li>
+                <a href="#volunteer-informations" onclick="fullfillOption('Story')">
+                    <h3>Story Maker ></h3>
+                </a>
+                <p>criação de stories criativos</p>
+            </li>
+            <li>
+                <a href="#volunteer-informations" onclick="fullfillOption('Recepção')">
+                    <h3>Recepção ></h3>
+                </a>
+                <p>receber cada pessoa com carinho</p>
+            </li>
+            <li>
+                <a href="#volunteer-informations" onclick="fullfillOption('Estacionamento')">
+                    <h3>Estacionamento ></h3>
+                </a>
+                <p>Organização e segurança do estacionamento</p>
+            </li>
+            <li>
+                <a href="#volunteer-informations" onclick="fullfillOption('Auxiliar de Crianças')">
+                    <h3>Auxiliar de professor de crianças ></h3>
+                </a>
+                <p>Ajuda a cuidar e ensinar os pequenos</p>
+            </li>
+        </ul>
+    </section>
+
+    <form id="volunteer-informations" action="/volunteer" method="post">
+        <h2>Cadastro de voluntário:</h2>
+        <div class="item">
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div class="item">
+            <label for="number">Número (Whatsaap):</label>
+            <input type="text" name="number" id="number">
+        </div>
+        <div class="item">
+            <label for="options">Equipe:</label>
+            <select id="options" name="options">
+                <option value="Filmagem">Filmagem</option>
+                <option value="Fotografia">Fotografia</option>
+                <option value="Telão">Telão</option>
+                <option value="Story">Story Maker</option>
+                <option value="Recepção">Recepção</option>
+                <option value="Estacionamento">Estacionamento</option>
+                <option value="Auxiliar de Crianças">Auxiliar</option>
+            </select>
+        </div>
+        <div class="privacity-container">
+            <input type="checkbox" name="privacity" id="privacity">
+            <label for="privacity">Concordo com a <a href="/privacity">política de privacidade</a></label>
+        </div>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <footer>
+        <div class="content-container">
+            <div class="contacts">
+                <h2>CONTATO</h2>
+                <P>(47) 3355-7071</P>
+                <P>igrejacalvario@gmail.com</P>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/igrejacalvario/" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/igreja_calvario/" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/c/IECALV%C3%81RIO" target="_blank">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="meetings">
+                <h2>CULTOS (MALUCHE)</h2>
+                <ul>
+                    <li>Segunda: 19:30</li>
+                    <li>Quarta: 19:30</li>
+                    <li>Sábado: 19:30</li>
+                    <li>Domingo: 09:00 e 18:30</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="copy">&copy; 2024 Igreja Evangélica Calvário | Av. Hugo Schlosser, 515 - Jardim Maluche, Brusque - SC</p>
+    </footer>
+
+    <script>
+        document.getElementById('volunteer-informations').addEventListener('submit', function(event) {
+            const checkbox = document.getElementById('privacity')
+    
+            if (!checkbox.checked) {
+                event.preventDefault()
+                alert('Você deve concordar com a Política de Privacidade antes de se inscrever.')
+            }
+        })
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

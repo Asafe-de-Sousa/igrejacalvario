@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igreja Calvário - adm</title>
+
+    <style>
+        body {
+            background-color: #161822;
+            color: #fff;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        input {
+            width: 500px;
+            max-width: 90vw;
+            padding: 10px;
+        }
+
+        button {
+            padding: 5px 20px;
+            font-size: 1.2rem;
+        }
+
+        label {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/zap">
+        <label for="password">Digite a senha:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

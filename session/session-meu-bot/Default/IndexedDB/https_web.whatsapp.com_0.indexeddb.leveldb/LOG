@@ -1,0 +1,17 @@
+2024/10/04-13:42:12.512 3ba0 Reusing MANIFEST C:\Users\ANANDA FILHOTA\Desktop\calvario\session\session-meu-bot\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/10/04-13:42:12.514 3ba0 Recovering log #424
+2024/10/04-13:42:14.612 3ba0 Reusing old log C:\Users\ANANDA FILHOTA\Desktop\calvario\session\session-meu-bot\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000424.log 
+2024/10/04-13:42:24.108 bf4 Level-0 table #435: started
+2024/10/04-13:42:24.494 bf4 Level-0 table #435: 1003779 bytes OK
+2024/10/04-13:42:24.500 bf4 Delete type=0 #424
+2024/10/04-13:42:24.509 bf4 Manual compaction at level-0 from '\x00_\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00`\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/10/04-13:42:34.070 2e84 Compacting 1@1 + 7@2 files
+2024/10/04-13:42:36.053 2e84 Generated table #436@1: 55019 keys, 2224802 bytes
+2024/10/04-13:42:36.604 2e84 Generated table #437@1: 4425 keys, 2146224 bytes
+2024/10/04-13:42:36.836 2e84 Generated table #438@1: 2200 keys, 2144519 bytes
+2024/10/04-13:42:37.763 2e84 Generated table #439@1: 19347 keys, 2221276 bytes
+2024/10/04-13:42:38.464 2e84 Generated table #440@1: 22470 keys, 2207872 bytes
+2024/10/04-13:42:41.288 2e84 Generated table #441@1: 85346 keys, 2232602 bytes
+2024/10/04-13:42:41.830 2e84 Generated table #442@1: 46330 keys, 1005194 bytes
+2024/10/04-13:42:41.830 2e84 Compacted 1@1 + 7@2 files => 14182489 bytes
+2024/10/04-13:42:41.832 2e84 compacted to: files[ 0 0 7 0 0 0 0 ]

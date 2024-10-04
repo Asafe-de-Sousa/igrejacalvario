@@ -1,0 +1,207 @@
+/* Maluche */
+.maluche-header {
+    background-image: url('/assets/images/fundos/maluchebg.png');
+}
+/* Dom Joaquim */
+.dom-joaquim-header {
+    background-image: url('/assets/images/fundos/dombg.png');
+}
+/* Claraíba */
+.claraiba-header {
+    background-image: url('/assets/images/fundos/claraibabg.png');
+}
+/* Gaspar */
+.gaspar-header {
+    background-image: url('/assets/images/fundos/gasparbg.png');
+}
+/* Nova Trento */
+.trento-header {
+    background-image: url('/assets/images/fundos/nova-trentobg.png');
+}
+
+.schedule {
+    padding-bottom: 50px;
+}
+
+.schedule h2, .history h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #161822;
+    text-align: center;
+}
+
+.schedules-container {
+    display: flex;
+    justify-content: center;
+    gap: 160px;
+    text-align: center;
+    max-width: 100vw;
+    overflow-x: hidden
+}
+
+.schedules-container h3 {
+    font-size: 2rem;
+    color: #161822;
+}
+
+.schedules-container p, .history p {
+    color: #9b9997;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.history {
+    padding: 40px 20%;
+    max-width: 100vw;
+    overflow-x: hidden
+}
+
+/* Pastor */
+.pastor {
+    background-color: #161822;
+    padding: 40px 10%;
+
+    max-width: 100vw;
+    overflow-x: hidden
+}
+
+.pastor h2 {
+    color: #e96642;
+    font-size: 2.3rem;
+}
+
+.pastor p {
+    color: #fff;
+    width: 40%;
+    font-size: 1.9rem;
+}
+
+.pastor .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pastor .content img {
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    object-position: top;
+}
+
+/* Locations informations */
+.church-location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 60px;
+
+    max-width: 100vw;
+    overflow-x: hidden
+}
+
+.church-location h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #161822;
+    text-align: center;
+}
+
+.church-location iframe {
+    align-content: center;
+
+    max-width: 100vw;
+    overflow-x: hidden
+}
+
+.history-video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 150px;
+    padding-top: 50px;
+
+    max-width: 90vw;
+    overflow-x: hidden;
+
+    margin: auto;
+}
+
+.history-video h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #161822;
+    text-align: center;
+}
+
+/* ---------------------------------------------------- */
+@media (max-width: 768px) {
+    .schedule h2, 
+    .history h2,
+    .history-video h2,
+    .church-location h2,
+    .pastor h2 {
+        font-size: 2rem;
+    }
+
+    .schedules-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        max-width: 95vw;
+        margin: auto;
+    }
+
+    .schedules-container h3 {
+        font-size: 1.5rem;
+    }
+
+    .schedules-container p {
+        font-size: 1.3rem;
+    }
+
+    /* Pastor */
+    .pastor .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .pastor p {
+        color: #fff;
+        width: 100%;
+        max-width: 90vh;
+        font-size: 1.3rem;
+    }
+
+    .pastor .content img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 20px;
+        object-position: top;
+    }
+
+    /* History */
+    .history {
+        padding: 40px 10%;
+        max-width: 100vw;
+        overflow-x: hidden
+    }
+
+    .history-video iframe {
+        width: 90vw; /* Defina a largura desejada */
+        height: 200px;
+    }
+
+    /* Church location */
+    .church-location iframe {
+        align-content: center;
+    
+        max-width: 90vw;
+        overflow-x: hidden
+    }
+}

@@ -1,0 +1,23 @@
+.social-header {
+    background-image: url('/assets/images/banners/social-assistence.png');
+}
+
+.main-social {
+    padding-left: 5%;
+}
+
+.main-social .content {
+    margin-bottom: 60px;
+}
+
+.main-social h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #161822;
+}
+
+.main-social p {
+    color: #9b9997;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
