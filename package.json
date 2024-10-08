@@ -11,7 +11,9 @@
   "author": "Asafe Matheus Moraes de Sousa",
   "license": "ISC",
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.80",
     "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.21.0",
     "qrcode": "^1.5.4",

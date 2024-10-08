@@ -2,52 +2,48 @@ import express from 'express'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import bodyParser from 'body-parser'
-
-import pkg from 'whatsapp-web.js';
-const { Client, LocalAuth } = pkg;
-import qrcode from 'qrcode-terminal'
-import QRCode from 'qrcode';
-
+import pkg from 'whatsapp-web.js'
+import QRCode from 'qrcode'
 import fs from 'fs'
+import mailchimp from '@mailchimp/mailchimp_marketing'
+import dotenv from 'dotenv'
+const { Client, LocalAuth } = pkg
+
+dotenv.config()
+
+const mailchimpAPIKey = process.env.MAILCHIMP_API_KEY
+const serverPrefix = 'us8'
+
+mailchimp.setConfig({
+    apiKey: mailchimpAPIKey,
+    server: serverPrefix
+})
 
 let currentQrCode = null
 
-// Configura o cliente usando LocalAuth para gerenciar a sessão localmente
 const client = new Client({
     authStrategy: new LocalAuth({
-      clientId: 'meu-bot', // Isso define um ID para diferenciar sessões
-      dataPath: './session', // Diretório personalizado para armazenar a sessão
+      clientId: 'meu-bot',
+      dataPath: './session', 
     })
 })
 
-
-// Inicia o cliente
 client.initialize()
-
-// Gera o QR Code no terminal para conexão inicial
 client.on('qr', async (qr) => {
-    console.log('QR Code gerado! Escaneie com o WhatsApp:')
-    //qrcode.generate(qr, { small: true })
     currentQrCode = await QRCode.toDataURL(qr);
 })
-
-// Notifica quando o cliente está pronto para ser usado
 client.on('ready', async () => {
     console.log('Cliente conectado com sucesso!')
 })
-
-// Exibe qualquer erro
 client.on('auth_failure', (msg) => {
     console.error('Erro de autenticação: ', msg)
-})
-  
+}) 
 process.on('uncaughtException', (error) => {
     console.error('Uma exceção não tratada ocorreu:', error)
 })
-
 client.on('disconnected', async (reason) => {
     console.log('Cliente desconectado:', reason);
-    // Deletar a pasta de sessão
+    
     const sessionPath = path.join(__dirname, 'session');
     try {
         fs.rmSync(sessionPath, { recursive: true, force: true });
@@ -65,8 +61,8 @@ const port = 3000
 app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views'); // Caminho para a pasta onde suas views EJS estão
+app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views')
 
 
 app.get('/', (req, res) => {
@@ -137,11 +133,10 @@ app.get('/zap', async (req, res) => {
 })
 
 /* POSTS */
-app.post('/email', (req, res) => {
-    const email = req.body
+app.post('/email', async (req, res) => {
+    const email = req.body.email
 
-    res.redirect('/success')
-    console.log(email)
+    await addContact(email, res)
 })
 
 app.post('/volunteer', async (req, res) => {
@@ -149,11 +144,8 @@ app.post('/volunteer', async (req, res) => {
     const number = req.body.number
     const option = req.body.options
 
-    console.log(req.body)
+    const groupId = '120363328042913669@g.us'
 
-    const groupId = '120363328042913669@g.us'; // Substitua pelo ID do seu grupo
-
-    // Monta a mensagem
     const message = `
     *Novo Voluntário*
 
@@ -163,15 +155,12 @@ app.post('/volunteer', async (req, res) => {
     `;
 
     try {
-        // Envia a mensagem para o grupo
-        await client.sendMessage(groupId, message);
-        console.log('Mensagem enviada para o grupo:', message);
-        res.redirect('/success'); // Envia a resposta apenas se a mensagem for enviada com sucesso
+        await client.sendMessage(groupId, message)
+        res.redirect('/success')
     } catch (error) {
-        console.error('Erro ao enviar mensagem:', error);
-        // Apenas envie uma resposta de erro se a resposta ainda não tiver sido enviada
+        console.error('Erro ao enviar mensagem:', error)
         if (!res.headersSent) {
-            res.status(500).send('Erro ao enviar mensagem.');
+            res.status(500).send('Erro ao enviar mensagem.')
         }
     }
 
@@ -181,13 +170,10 @@ app.post('/volunteer', async (req, res) => {
 app.post('/zap', (req, res) => {
     const password = req.body.password;
     
-    // Substitua 'sua-senha' pela senha que você deseja usar
     if (password === '123456') {
         if (currentQrCode) {
-            // Se o QR Code já foi gerado, renderize a view com ele
             res.render(__dirname + '/pages/zapqr.ejs', { qrCode: currentQrCode });
         } else {
-            // Caso contrário, retorne uma mensagem de erro
             res.send('<h1>QR Code ainda não gerado!</h1>');
         }
     } else {
@@ -196,3 +182,16 @@ app.post('/zap', (req, res) => {
 })
 
 app.listen(port, () => {console.log('Servidor rodando na porta ' + port)})
+
+async function addContact(email, serveRresponse) {
+    try {
+        const response = await mailchimp.lists.addListMember('e91ed5ad9b', {
+            email_address: email,
+            status: 'subscribed'
+        })
+
+        serveRresponse.redirect('/success')
+    } catch (error) {
+        serveRresponse.send('<h1>Algo deu errado. Tente novamente mais tarde</h1>')
+    }
+}

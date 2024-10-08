@@ -490,8 +490,25 @@
 
 /*-------------------------------------------------*/
 
-@media (max-width: 1024px) {
-    
+@media (min-width: 1920px) {
+    .big-images-container .maluche, 
+    .big-images-container .dom {
+        background-position: center;
+        background-size: cover;
+        height: 500px !important;
+    }
+
+    .little-images-container .claraiba,
+    .little-images-container .gaspar,
+    .little-images-container .nova-trento {
+        background-position: center;
+        background-size: cover;
+        height: 400px !important;
+    }
+
+    .groups .item img {
+        height: 350px !important;
+    }
 }
 
 @media (max-width: 768px) {
